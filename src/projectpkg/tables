@@ -1,0 +1,24 @@
+create table admin(admin_uname varchar2(10),admin_password varchar2(10));
+insert into admin values('admin','admin');
+
+create table users
+(user_id number primary key,
+f_name varchar2(20),
+l_name varchar2(20),
+user_mail varchar2(25),
+user_phone number,
+h_name varchar2(20),
+city varchar2(20),
+district varchar2(20),
+id_name varchar2(20),
+id_no Varchar2(20),
+user_username varchar2(20),
+user_password varchar2(20));
+
+create table place(name varchar2(20),
+district varchar2(20));
+
+create table services(type varchar2(20),
+phoneno number,
+mail varchar2(20),
+place varchar2(20));
