@@ -56,7 +56,7 @@ public class Home_admin extends JFrame  {
 				setDefaultCloseOperation(javax.swing.  
 		        WindowConstants.DISPOSE_ON_CLOSE);  
 		        setTitle("Welcome");  
-		        setSize(914, 674);  
+		        setSize(732, 759);  
 		       
 		        getContentPane().setLayout(null);
 		        
@@ -134,6 +134,7 @@ public class Home_admin extends JFrame  {
 							lblNewLabel_10.setText(rsdata.getString("DISTRICT"));
 							lblNewLabel_12.setText(rsdata.getString("ID_NAME"));
 							lblNewLabel_14.setText(rsdata.getString("ID_NO"));
+							
 						}
 					}catch (Exception e2) {
 			        	
@@ -142,11 +143,11 @@ public class Home_admin extends JFrame  {
 				});
 		        
 		         lblNewLabel_3 = new JLabel("");
-		        lblNewLabel_3.setBounds(375, 137, 45, 13);
+		        lblNewLabel_3.setBounds(375, 137, 77, 13);
 		        getContentPane().add(lblNewLabel_3);
 		        
 		         lblNewLabel_4 = new JLabel("");
-		        lblNewLabel_4.setBounds(430, 137, 85, 13);
+		        lblNewLabel_4.setBounds(437, 137, 105, 13);
 		        getContentPane().add(lblNewLabel_4);
 		        
 		        lblNewLabel_5 = new JLabel("Phone Number");

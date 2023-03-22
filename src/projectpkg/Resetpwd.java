@@ -43,7 +43,7 @@ public class Resetpwd {
 	 */
 	public Resetpwd(int id) {
 		uid=id;
-		setVisible(true);
+		
 		initialize();
 	}
 
@@ -87,6 +87,7 @@ public class Resetpwd {
 		JButton btnNewButton = new JButton("Submit");
 		btnNewButton.setBounds(191, 244, 85, 21);
 		frame.getContentPane().add(btnNewButton);
+		frame.setVisible(true);
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -95,16 +96,28 @@ public class Resetpwd {
 				{
 					Class.forName("oracle.jdbc.driver.OracleDriver");
 					Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","project","project");
-					String query="select * from admin";
+					String query="select * from users where USER_ID='"+uid+"'";
 					Statement stmt=con.createStatement();
 					ResultSet rs=stmt.executeQuery(query);
 					if(rs.next())
 					{
-						if(passwordField.getText().equals(rs.getString("ADMIN_PASSWORD")))
+						if(passwordField.getText().equals(rs.getString(12)))
 						{
 							if(passwordField_1.getText().equals(passwordField_2.getText()))
 							{
+								String query2="update users set USER_PASSWORD='"+passwordField_1.getText()+"' where USER_ID='"+uid+"'";
 								
+								int result=stmt.executeUpdate(query2);
+								System.out.println(result);
+								if(result!=0)
+								{
+								JOptionPane.showMessageDialog(null,"password update");
+								frame.setVisible(false);
+								}
+								else
+								{
+									JOptionPane.showMessageDialog(null,"password not update");
+								}
 							}
 							else
 							{
@@ -121,7 +134,7 @@ public class Resetpwd {
 				{
 					System.out.println(e1);
 				}
-				frame.setVisible(true);
+				
 			}
 		});
 	}

@@ -23,6 +23,7 @@ public class Add_Service {
 	private JTextField textField_phone;
 	private JTextField textField_mail;
 	private JTextField textField_Name;
+	private JTextField textField_Coordinates;
 
 	
 	/**
@@ -118,7 +119,7 @@ public class Add_Service {
 				
 			}
 		});
-		btnNewButton.setBounds(68, 322, 85, 21);
+		btnNewButton.setBounds(68, 371, 85, 21);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Add");
@@ -132,7 +133,7 @@ public class Add_Service {
 					ResultSet rssid=stmt.executeQuery("select max(SID) from services");
 					rssid.next();
 					int sid=rssid.getInt(1)+1;
-					String query2="insert into services values('"+comboBox.getSelectedItem().toString()+"','"+textField_phone.getText()+"','"+textField_mail.getText()+"','"+comboBox_2.getSelectedItem().toString()+"','"+sid+"','"+textField_Name.getText()+"')";
+					String query2="insert into services values('"+comboBox.getSelectedItem().toString()+"','"+textField_phone.getText()+"','"+textField_mail.getText()+"','"+comboBox_2.getSelectedItem().toString()+"','"+sid+"','"+textField_Name.getText()+"','"+textField_Coordinates.getText()+"')";
 					
 					System.out.println(query2);
 					int result=stmt.executeUpdate(query2);
@@ -155,7 +156,7 @@ public class Add_Service {
 				
 			}
 		});
-		btnNewButton_1.setBounds(258, 322, 85, 21);
+		btnNewButton_1.setBounds(258, 371, 85, 21);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("View");
@@ -189,6 +190,15 @@ public class Add_Service {
 		textField_Name.setBounds(258, 102, 96, 19);
 		frame.getContentPane().add(textField_Name);
 		textField_Name.setColumns(10);
+		
+		JLabel lblNewLabel_7 = new JLabel("Coordinates");
+		lblNewLabel_7.setBounds(68, 320, 81, 13);
+		frame.getContentPane().add(lblNewLabel_7);
+		
+		textField_Coordinates = new JTextField();
+		textField_Coordinates.setBounds(258, 317, 128, 19);
+		frame.getContentPane().add(textField_Coordinates);
+		textField_Coordinates.setColumns(10);
 		
 		frame.setVisible(true);
 	}

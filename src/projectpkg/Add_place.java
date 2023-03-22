@@ -1,6 +1,5 @@
 package projectpkg;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -59,7 +58,7 @@ public class Add_place {
 		lblNewLabel_1.setBounds(109, 101, 65, 13);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		String s1[] = { "Select","Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod" , "Kollam", "Kottayam", "	Kozhikode", "Malappuram", "	Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"};
+		String s1[] = { "Select","Alappuzha", "Ernakulam", "Idukki", "Kannur", "Kasaragod" , "Kollam", "Kottayam", "Kozhikode", "Malappuram", "	Palakkad", "Pathanamthitta", "Thiruvananthapuram", "Thrissur", "Wayanad"};
 		JComboBox comboBox = new JComboBox(s1);
 		comboBox.setBounds(255, 97, 96, 21);
 		frame.getContentPane().add(comboBox);

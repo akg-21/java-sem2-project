@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javax.naming.spi.DirStateFactory.Result;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,16 +27,16 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI.TabbedPaneLayout;
 public class Gust_Home extends javax.swing.JFrame {
 	JTabbedPane jtp;
 	JTextField username;
-	JTextField usernameforget;
+	JTextField usernameforget,phoneno;
 	JPasswordField pwd;
-	JButton loginbtm;
-	JButton regbtm;
-	JButton regbtmforget;
+	
+	JButton regbtm,regbtmforget,loginbtm,getpwd;
+	
 	JPanel login;
 	JPanel register;
 	JPanel forget;
 	JLabel u;
-	JLabel p;
+	JLabel p,L1,L2;
    Image img = Toolkit.getDefaultToolkit().getImage("E:\\MSC\\semester 2\\java\\Lab\\ProjectPic\\6345959.jpg");
    public Gust_Home() throws IOException {
       this.setContentPane(new JPanel() {
@@ -65,14 +66,100 @@ public class Gust_Home extends javax.swing.JFrame {
       regbtm=new JButton("Register");
       register=new JPanel();
       register.add(regbtm);
+      
       //register end
       //forgetpwd
-      usernameforget=new JTextField(20);
+      L1=new JLabel("Username");
+      usernameforget=new JTextField(15);
+      phoneno=new JTextField(10);
+      
+      phoneno.setVisible(false);
       regbtmforget=new JButton("find");
       forget=new JPanel();
+      forget.add(L1);
       forget.add(usernameforget);
+      L2=new JLabel("Phone Number");
+      forget.add(L2);
+      L2.setVisible(false);
       forget.add(regbtmforget);
-      //forgetpwd ended
+      forget.add(phoneno);
+      getpwd=new JButton("get Passowrd");
+      forget.add(getpwd);
+      
+      
+      getpwd.setVisible(false);
+      L2.setVisible(false);
+      
+      
+      
+      
+      
+      regbtmforget.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			try
+			{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","project","project");
+			Statement stmt=con.createStatement();
+			String q1="select * from users where USER_USERNAME='"+usernameforget.getText()+"'";
+			System.out.println(q1);
+			ResultSet rsuname=stmt.executeQuery(q1);
+			if(rsuname.next())
+			{
+				L1.setVisible(false);
+				phoneno.setVisible(true);
+				L2.setVisible(true);
+				getpwd.setVisible(true);
+				regbtmforget.setVisible(false);
+				
+				
+			}else
+			{
+				JOptionPane.showMessageDialog(null,"No username Found"+username.getText());
+			}
+			}catch(Exception e4)
+			{
+				System.out.println(e4);
+			}
+			
+			
+			
+		}
+	});
+      getpwd.addActionListener(new ActionListener() {
+  		
+  		@Override
+  		public void actionPerformed(ActionEvent e) {
+  			try
+			{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","project","project");
+			Statement stmt=con.createStatement();
+			String q2="select * from users where USER_USERNAME='"+usernameforget.getText()+"'";
+			System.out.println(q2);
+			ResultSet rsphone=stmt.executeQuery(q2);
+			if(rsphone.next())
+			{
+				if(phoneno.getText().equals(rsphone.getString("USER_PHONE")))
+				{
+					
+					
+					JOptionPane.showMessageDialog(null,rsphone.getString("USER_PASSWORD"));
+				}
+				
+			}else
+			{
+				JOptionPane.showMessageDialog(null,"no password found"+rsphone.getString("USER_PHONE"));
+			}
+			}catch(Exception e4)
+			{
+				System.out.println(e4);
+			}
+  			
+  		}
+  	});
       
       
       //jtabbedpane being

@@ -198,7 +198,8 @@ public class User_Registration extends JFrame  {
 		frame.setVisible(true);
 		JButton btnNewButton = new JButton("Register");
 		btnNewButton.setBounds(411, 647, 96, 21);
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() 
+		{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -224,7 +225,7 @@ public class User_Registration extends JFrame  {
 						{
 							JOptionPane.showMessageDialog(null,"Data Saved");
 							try {
-								setVisible(false);
+								frame.setVisible(false);
 								Gust_Home gh=new Gust_Home();
 								
 								gh.setVisible(true);
@@ -273,22 +274,18 @@ public class User_Registration extends JFrame  {
 				
 			}
 		});
-		btnReset.setBounds(106, 647, 96, 21);
-		frame.getContentPane().add(btnReset);
-		
-		JButton btnReset_1 = new JButton("Reset");
-		btnReset_1.setBounds(262, 647, 96, 21);
-		btnReset.addActionListener(new ActionListener() {
-		
-			@Override
-			public void actionPerformed(ActionEvent e) {
-			if(e.getSource()==btnReset_1)
-			{
-				textField_fname.setText("");
-				
-			}
-			}
-		});
-		frame.getContentPane().add(btnReset_1);
+//		btnReset.setBounds(106, 647, 96, 21);
+//		frame.getContentPane().add(btnReset);
+//		btnReset.addActionListener(new ActionListener() {
+//		
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//			if(e.getSource()==btnReset_1)
+//			{
+//				textField_fname.setText("");
+//				
+//			}
+//			}
+//		});
 	}	
 }
