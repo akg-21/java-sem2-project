@@ -174,9 +174,9 @@ public class Add_Service {
 						comboBox_2.addItem(rs.getString(1));
 					}
 				}catch(Exception e3)
-				{
+					{
 					System.out.println(e3);
-				}
+					}
 			}
 		});
 		btnNewButton_2.setBounds(367, 226, 85, 21);

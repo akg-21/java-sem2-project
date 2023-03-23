@@ -18,7 +18,10 @@ user_password varchar2(20));
 create table place(name varchar2(20),
 district varchar2(20));
 
-create table services(type varchar2(20),
+create table services(sid number,
+name varchar2(20),
+type varchar2(20),
 phoneno number,
 mail varchar2(20),
-place varchar2(20));
+place varchar2(20)
+COORDINATES varchar2(30));

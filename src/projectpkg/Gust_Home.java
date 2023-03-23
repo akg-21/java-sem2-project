@@ -37,7 +37,7 @@ public class Gust_Home extends javax.swing.JFrame {
 	JPanel forget;
 	JLabel u;
 	JLabel p,L1,L2;
-   Image img = Toolkit.getDefaultToolkit().getImage("E:\\MSC\\semester 2\\java\\Lab\\ProjectPic\\6345959.jpg");
+   Image img = Toolkit.getDefaultToolkit().getImage("E:\\MSC\\semester 2\\java\\Lab\\project1\\pics\\6345959.jpg");
    public Gust_Home() throws IOException {
       this.setContentPane(new JPanel() {
          @Override
