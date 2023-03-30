@@ -42,6 +42,7 @@ public class Home_user extends JFrame implements MouseListener
 	private JScrollPane scrollPane;
 	private JComboBox comboBox_NAMES;
 	private JLabel lblNewLabel_14;
+	private JButton btnNewButton_2;
 
 	/**
 	 * Launch the application.
@@ -283,6 +284,17 @@ public class Home_user extends JFrame implements MouseListener
 				}
 			});
 			menuBar.add(btnNewButton);
+			
+			btnNewButton_2 = new JButton("view services");
+			btnNewButton_2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					new services_display().setVisible(true);
+					frame.setVisible(false);
+					
+				}
+			});
+			menuBar.add(btnNewButton_2);
 			
 			
 		
